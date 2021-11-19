@@ -8,5 +8,10 @@ public class Greeting {
         short year = 2021;
         idea += year;
         System.out.println(idea);
+        int u = 2147483647;
+        float f = u;
+        int i = (int) f;
+        System.out.println(f);
+        System.out.println(i);
     }
 }
