@@ -5,7 +5,7 @@ public class Game {
         if (name.equals("super mario")) { /* сравниваем переменную name с "super mario" */
             System.out.println("Start - super mario");
         }
-        if (name.equals( "tanks")) { /* Сравнить переменную name с "tanks" */
+        if (name.equals("tanks")) { /* Сравнить переменную name с "tanks" */
             System.out.println("Start - tanks");
         }
         if (name.equals("tetris")) { /* Сравнить переменную name с "tetris" */
