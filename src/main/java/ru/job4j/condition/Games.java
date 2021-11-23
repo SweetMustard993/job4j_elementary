@@ -14,5 +14,6 @@ public class Games {
         Games.permission(true, false);
         Games.permission(false, true);
         Games.permission(false, false);
+        Games.permission(true, true);
     }
 }
