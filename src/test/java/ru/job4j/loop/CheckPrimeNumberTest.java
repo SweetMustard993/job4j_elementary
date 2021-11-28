@@ -24,6 +24,7 @@ public class CheckPrimeNumberTest {
         boolean result = CheckPrimeNumber.check(number);
         Assert.assertFalse(result);
     }
+
     @Test
     public void when239() {
         int number = 239;
