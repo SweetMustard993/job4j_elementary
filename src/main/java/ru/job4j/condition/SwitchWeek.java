@@ -25,7 +25,9 @@ public class SwitchWeek {
             case 7:
                 name = "воскресенье";
                 break;
-            default: name = "некорректное значение"; break;
+            default:
+                name = "некорректное значение";
+                break;
         }
         return name;
     }
