@@ -6,23 +6,15 @@ public class AlgoArray {
         int temp = array[0];
         array[0] = array[3];
         array[3] = temp;
+        temp = array[1];
+        array[1] = array[2];
+        array[2] = temp;
+        temp = array[3];
+        array[3] = array[4];
+        array[4] = temp;
 
         for (int index = 0; index < array.length; index++) {
             System.out.println(array[index]);
-        }
-
-        for (int i = 0; i < array.length - 1; i++) {
-            int min = array[i];
-            for (int j = i; j <= array.length - 1; j++) {
-                if (array[j] < min) {
-                    min = array[j];
-                    array[j] = array[i];
-                    array[i] = min;
-                }
-            }
-        }
-        for (int elemnt : array) {
-            System.out.println(elemnt);
         }
     }
 }
