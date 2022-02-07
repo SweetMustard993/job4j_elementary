@@ -33,8 +33,8 @@ public class Point {
     public static void main(String[] args) {
         Point a = new Point(0, 0);
         Point b = new Point(0, 2);
-        Point l = new Point(0, 0, 0);
-        Point k = new Point(3, 4, 6);
+        Point l = new Point(6, 1, 7);
+        Point k = new Point(1, 6, 7);
         double dist3d = l.distance3d(k);
         double dist = a.distance(b);
         System.out.println(dist);

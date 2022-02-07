@@ -40,4 +40,13 @@ public class PointTest {
         Assert.assertEquals(expected, out, 0.01);
     }
 
+    @Test
+    public void when617to167then7d07() {
+        double expected = 7.07;
+        Point point1 = new Point(6, 1, 7);
+        Point point2 = new Point(1, 6, 7);
+        double out = point1.distance(point2);
+        Assert.assertEquals(expected, out, 0.01);
+    }
+
 }
