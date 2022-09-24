@@ -2,9 +2,9 @@ package ru.job4j.early;
 
 public class PasswordValidator {
 
-    @SuppressWarnings("checkstyle:OperatorWrap")
     public static String validate(String password) {
         char[] chArray = password.toCharArray();
+        String[] illegalSubString = {"qwerty", "12345", "password", "admin", "user"};
         if (password.equals(null)) {
             throw new IllegalArgumentException("значенние не должнобыть пустым");
         }
@@ -51,10 +51,11 @@ public class PasswordValidator {
         if (!isSpecialCharacter) {
             throw new IllegalArgumentException("значенние должно иметь хотя бы один символ являющицся цифрой");
         }
-        if (password.contains("qwerty") || password.contains("12345") || password.contains("password")
-                || password.contains("admin") || password.contains("user")) {
-            throw new IllegalArgumentException("значение не должно содержать следующие послежовательности: "
-                    + "qwerty, 12345, password, admin, user");
+        for (String str : illegalSubString) {
+            if (password.contains(str)) {
+                throw new IllegalArgumentException("значение не должно содержать следующие послежовательности: "
+                        + "qwerty, 12345, password, admin, user");
+            }
         }
         return password;
     }
