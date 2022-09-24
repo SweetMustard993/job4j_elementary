@@ -1,16 +1,17 @@
 package ru.job4j.early;
 
+import java.util.Locale;
+
 public class PasswordValidator {
 
     public static String validate(String password) {
-        char[] chArray = password.toCharArray();
-        String[] illegalSubString = {"qwerty", "12345", "password", "admin", "user"};
-        if (password.equals(null)) {
-            throw new IllegalArgumentException("значенние не должнобыть пустым");
+        if (password == null) {
+            throw new IllegalArgumentException("значенние не должно быть пустым");
         }
         if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("значенние должно быть в диапазоне [8, 32]");
         }
+        char[] chArray = password.toCharArray();
         boolean isUpperRegister = false;
         for (Character character : chArray) {
             isUpperRegister = Character.isUpperCase(character);
@@ -43,17 +44,19 @@ public class PasswordValidator {
         }
         boolean isSpecialCharacter = false;
         for (Character character : chArray) {
-            isSpecialCharacter = !Character.isDigit(character) && Character.isAlphabetic(character);
+            isSpecialCharacter = !Character.isDigit(character) && !Character.isAlphabetic(character);
             if (isSpecialCharacter) {
                 break;
             }
         }
         if (!isSpecialCharacter) {
-            throw new IllegalArgumentException("значенние должно иметь хотя бы один символ являющицся цифрой");
+            throw new IllegalArgumentException("значенние должно иметь хотя бы один спец символ");
         }
+        String[] illegalSubString = {"qwerty", "12345", "password", "admin", "user"};
+        String lowerCasePass = password.toLowerCase(Locale.ROOT);
         for (String str : illegalSubString) {
-            if (password.contains(str)) {
-                throw new IllegalArgumentException("значение не должно содержать следующие послежовательности: "
+            if (lowerCasePass.contains(str)) {
+                throw new IllegalArgumentException("значение не должно содержать следующие последовательности: "
                         + "qwerty, 12345, password, admin, user");
             }
         }
